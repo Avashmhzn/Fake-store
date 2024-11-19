@@ -58,7 +58,17 @@ class ProductListPage extends ConsumerWidget {
           },
         ),
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Center(child: Text('Error: $error')),
+        error: (error, stack) => Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error, size: 48, color: Colors.red),
+              const SizedBox(height: 8),
+              Text('Something went wrong!', style: const TextStyle(color: Colors.white)),
+              Text(error.toString(), style: const TextStyle(color: Colors.white)),
+            ],
+          ),
+        ),
       ),
     );
   }
